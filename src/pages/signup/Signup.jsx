@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useSignup } from '../../hooks/useSignup';
 
+// styles
 import { Wrapper } from '../login/Login.styles';
 
 export const Signup = () => {
@@ -7,9 +9,11 @@ export const Signup = () => {
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
 
+  const { signup, isLoading, error } = useSignup();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, displayName)
+    signup(email, password, displayName);
   }
 
   return (
@@ -41,7 +45,9 @@ export const Signup = () => {
           onChange={(e) => setDisplayName(e.target.value)}
         />
       </label>
-      <button>Sign up</button>
+      {!isLoading && <button>Sign up</button>}
+      {isLoading && <button disabled>Loading...</button>}
+      {error && <p>{error}</p>}
     </Wrapper>
   )
 }
