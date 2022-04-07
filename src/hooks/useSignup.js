@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { dispatch } = useAuthContext();
 
   // sign up function
   const signup = async (email, password, displayName) => {
@@ -14,7 +16,6 @@ export const useSignup = () => {
     try {
       // try to proceed with the signup
       const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(response.user);
 
       if (!response) {
         throw new Error('Signup could not be completed...')
@@ -22,6 +23,9 @@ export const useSignup = () => {
 
       // update the display name on newly created user
       await updateProfile(auth.currentUser, { displayName });
+
+      // dispatch login action
+      dispatch({ type: 'LOGIN', payload: response.user });
 
       setIsLoading(false);
       setError(null);
