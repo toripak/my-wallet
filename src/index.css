@@ -6,6 +6,8 @@ body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
   font-size: 1.1em;
+  background-color: #FAFAFA;
+  box-sizing: border-box;
 }
 
 ul,
