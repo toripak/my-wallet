@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSignup } from '../../hooks/useSignup';
 
 // styles
-import { Wrapper } from '../login/Login.styles';
+import { Form } from '../login/Login.styles';
 
 export const Signup = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ export const Signup = () => {
   }
 
   return (
-    <Wrapper onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <h2>Sign up</h2>
       <label>
         <span>Email:</span>
@@ -48,6 +48,6 @@ export const Signup = () => {
       {!isLoading && <button>Sign up</button>}
       {isLoading && <button disabled>Loading...</button>}
       {error && <p>{error}</p>}
-    </Wrapper>
+    </Form>
   )
 }

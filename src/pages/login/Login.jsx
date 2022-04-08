@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Wrapper } from './Login.styles';
+import { useLogin } from '../../hooks/useLogin';
+
+//styles
+import { Form } from './Login.styles';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, error, isLoading } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password)
+    login(email, password)
   }
 
   return (
-    <Wrapper onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <label>
         <span>Email:</span>
@@ -31,7 +35,9 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button>Login</button>
-    </Wrapper>
+      {!isLoading && <button>Login</button>}
+      {isLoading && <button disabled>Loading...</button>}
+      {error && <p>{error}</p>}
+    </Form>
   )
 }

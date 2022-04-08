@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled('form')`
-  max-width: 250px;
+export const Form = styled('form')`
+  max-width: 230px;
   margin: 25px auto;
   padding: 10px;
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   label {

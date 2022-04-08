@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuthContext } from "./useAuthContext";
@@ -29,15 +29,13 @@ export const useSignup = () => {
 
       setIsLoading(false);
       setError(null);
-
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error.message);
       setError(error.message);
       setIsLoading(false)
     }
-
   }
 
   return { error, isLoading, signup };
-
 }

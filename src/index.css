@@ -5,7 +5,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1em;
   background-color: #FAFAFA;
   box-sizing: border-box;
 }
@@ -38,8 +38,9 @@ button {
   border-radius: 5px;
   color: #3182CE;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   outline: none;
+  transition: ease-out .2s;
 }
 
 button:hover {
