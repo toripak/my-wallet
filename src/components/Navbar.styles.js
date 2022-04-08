@@ -11,14 +11,18 @@ export const Wrapper = styled('nav')`
   h1 {
     font-size: 1.3rem;
     margin-right: auto;
+    margin-left: .5rem;
   }
 
   ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    min-width: 150px;
-    margin: 0 1rem;
+    margin-right: .5rem;
+  }
+
+  li {
+    margin: 0 .5rem;
   }
 
   a {
