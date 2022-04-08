@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+      // allow to create a transaction doc only if the user is logged in
+      allow create: if request.auth != null;
+    // Allow the user to access the data only when user's uid matches the user's id on the doc
+      allow read, delete: if request.auth.uid == resource.data.uid;
+
+    }
+  }
+}

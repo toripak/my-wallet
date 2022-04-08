@@ -18,7 +18,7 @@ export const Wrapper = styled('nav')`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-right: .5rem;
+    padding-right: 1rem;
   }
 
   li {
