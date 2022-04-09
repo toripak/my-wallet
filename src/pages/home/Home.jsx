@@ -1,16 +1,25 @@
 import React from 'react';
-
-import { Wrapper, TransactionList, Sidebar } from './Home.styles';
+import { useAuthContext } from '../../hooks/useAuthContext';
+import { useCollection } from '../../hooks/useCollection';
 import { TransactionForm } from './TransactionForm';
+import { TransactionList } from './TransactionList';
+
+// styles
+import { Wrapper, Sidebar } from './Home.styles';
 
 export const Home = () => {
+  const { user } = useAuthContext();
+  const { documents, error } = useCollection(
+    'transactions',
+    ['uid', '==', user.uid]
+  );
+
   return (
     <Wrapper>
-      <TransactionList>
-        Transactions list
-      </TransactionList>
+      {error && <p>{error}</p>}
+      {documents && <TransactionList transactions={documents} />}
       <Sidebar>
-        <TransactionForm />
+        <TransactionForm uid={user.uid} />
       </Sidebar>
     </Wrapper>
   )

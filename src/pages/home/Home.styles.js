@@ -8,9 +8,32 @@ export const Wrapper = styled('div')`
   margin: 0 auto;
 `;
 
-export const TransactionList = styled('div')``;
+export const TransactionContainer = styled('ul')`
+  li {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #FDFDFD;
+    box-shadow: 3px 3px 6px rgba(59, 140, 216, 0.3);
+    border-left: 3px solid #3182CE;
+  }
+
+  .name {
+    font-size: 1.2em;
+  }
+
+  .amount {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+`;
 
 export const Sidebar = styled('div')`
+  max-width: 180px;
   padding: 10px;
   display: block;
   background: #2C5282;
