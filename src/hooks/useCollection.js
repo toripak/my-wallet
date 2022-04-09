@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
-import { auth, database } from "../firebase/config";
-import { collection, doc, onSnapshot, query, where } from 'firebase/firestore';
+import { useEffect, useState, useRef } from "react";
+import { database } from "../firebase/config";
+import { collection, orderBy, onSnapshot, query, where } from 'firebase/firestore';
 
-export const useCollection = (transactions, _query) => {
+export const useCollection = (transactions, _query, _orderBy) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
+
+  // wrap _query & _orderBy :array in useRef in order to prevent re-rendering when updated
+  const q = useRef(_query).current;
+  const ordBy = useRef(_orderBy).current;
 
   useEffect(() => {
     let ref = collection(database, transactions);
 
-    if (query) {
-      ref = query(ref, where(..._query)); // getting transactions with uid == user's id, rendering data that belongs to currently logged in user
+    if (q) {
+      ref = query(ref, where(...q)); // getting transactions with uid == user's id, rendering data that belongs to currently logged in user
+    };
+    if (ordBy) {
+      ref = query(ref, orderBy(...ordBy));
     }
 
     const unsubscribe = onSnapshot(ref, (snapshot) => {
@@ -26,7 +33,7 @@ export const useCollection = (transactions, _query) => {
     })
     return () => unsubscribe();
 
-  }, [transactions, _query]);
+  }, [transactions, q, ordBy]);
 
   return { documents, error };
 
