@@ -17,7 +17,7 @@ export const TransactionList = ({ transactions, total }) => {
   return (
     <TransactionContainer>
       {transactionLi}
-      <li style={{ marginTop: 40 }}><p className='name' style={{ textDecoration: 'underline' }}>Total:</p> <p className='amount'>CZK{total}</p></li>
+      <li className='total'><p className='name' style={{ textDecoration: 'underline' }}>Total:</p> <p className='amount'>CZK{total}</p></li>
     </TransactionContainer>
   )
 }

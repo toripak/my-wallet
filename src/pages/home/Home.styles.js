@@ -22,6 +22,11 @@ export const TransactionContainer = styled('ul')`
     border-left: 3px solid #3182CE;
   }
 
+  .total {
+    margin-top: 40px;
+    border-left: 3px solid #E53E3E;
+  }
+
   .name {
     font-size: 1.2em;
   }
