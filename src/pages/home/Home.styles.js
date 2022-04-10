@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled('div')`
+  max-width: 85%;
   padding: 15px;
   display: grid;
   grid-template-columns: 2fr 1fr;  
-  gap: .6rem;
+  gap: .7rem;
   margin: 0 auto;
 `;
 
 export const TransactionContainer = styled('ul')`
   li {
     margin: 20px;
-    padding: 10px;
+    padding: 10px 7px;
     display: flex;
     align-items: center;
     position: relative;
@@ -30,6 +31,17 @@ export const TransactionContainer = styled('ul')`
     font-weight: bold;
     font-size: 1.3em;
   }
+
+  button {
+    margin-left: 6px;
+    font-size: .6rem;
+    color: #E53E3E;
+    border-color: #E53E3E;
+  }
+
+  button:hover{
+    background-color: transparent;
+  }
 `;
 
 export const Sidebar = styled('div')`
@@ -39,6 +51,7 @@ export const Sidebar = styled('div')`
   background: #2C5282;
   border-radius: 5px;
   color: #FFF;
+  max-height: 230px;
 
   input {
     display: flex;

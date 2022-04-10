@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled('nav')`
-  width: 100%;
   display: flex;
   align-items: center;
   background-color: #EBF4FF;
