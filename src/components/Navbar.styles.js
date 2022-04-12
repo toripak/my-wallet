@@ -6,6 +6,7 @@ export const Wrapper = styled('nav')`
   align-items: center;
   background-color: #EBF4FF;
   padding: 1rem;
+  max-width: 100%;
 
   h1 {
     font-size: 1.3rem;
@@ -17,7 +18,6 @@ export const Wrapper = styled('nav')`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding-right: 1.5rem;
   }
 
   li {

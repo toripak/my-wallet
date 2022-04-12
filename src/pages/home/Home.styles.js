@@ -1,18 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled('div')`
-  max-width: 85%;
   padding: 15px;
   display: grid;
   grid-template-columns: 2fr 1fr;  
-  gap: .7rem;
+  gap: .6rem;
   margin: 0 auto;
+  max-width: 90%;
 `;
 
 export const TransactionContainer = styled('ul')`
+  
   li {
-    margin: 20px;
-    padding: 10px 7px;
+    margin-bottom: 10px;
+    padding: 10px 5px;
     display: flex;
     align-items: center;
     position: relative;
@@ -28,17 +29,17 @@ export const TransactionContainer = styled('ul')`
   }
 
   .name {
-    font-size: 1.2em;
+    font-size: .9em;
   }
 
   .amount {
     margin-left: auto;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 
   button {
-    margin-left: 6px;
+    margin: 6px;
     font-size: .6rem;
     color: #E53E3E;
     border-color: #E53E3E;
@@ -50,13 +51,13 @@ export const TransactionContainer = styled('ul')`
 `;
 
 export const Sidebar = styled('div')`
-  max-width: 180px;
-  padding: 10px;
+  max-width: 150px;
+  padding: 5px;
   display: block;
   background: #2C5282;
   border-radius: 5px;
   color: #FFF;
-  max-height: 230px;
+  max-height: 250px;
 
   input {
     display: flex;
@@ -67,7 +68,7 @@ export const Sidebar = styled('div')`
     font-family: 'Raleway', sans-serif;
     margin: 10px;
     border-radius: 5px;
-    max-width: 100%;
+    max-width: 80%;
     outline: none;
     border: 0;
     color: #333;
@@ -78,7 +79,8 @@ export const Sidebar = styled('div')`
   }
 
   button {
-    margin: 5px 10px;
+    margin: 5px auto;
+    padding: 5px;
     color: #3182CE;
     background-color: #FFF;
   }
