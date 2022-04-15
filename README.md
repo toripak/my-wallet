@@ -1,4 +1,4 @@
-# Expense tracker app build with React, React Router v6 and Firebase 9 
+# Expense tracker app built with React, React Router v6 and Firebase 9 
 
 Expense tracker app with authentication feature. I built it to practice working with modular Firebase 9 (authentication, realtime database) and React Context (passing user data to components to avoid props drilling).
 
